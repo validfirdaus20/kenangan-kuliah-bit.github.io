@@ -3,13 +3,43 @@
    cat: campus | class | together | outside | night | random   */
 const P = "assets/images/photo-";
 const photos = [
-  {n:1, cat:"outside together"}, {n:2, cat:"outside together"}, {n:3, cat:"outside together"},
-  {n:4, cat:"outside together"}, {n:5, cat:"class campus"}, {n:8, cat:"night"},
-  {n:10,cat:"class campus"}, {n:12,cat:"class campus"}, {n:14,cat:"class campus"},
-  {n:16,cat:"outside"}, {n:18,cat:"class campus"}, {n:20,cat:"class campus"},
-  {n:22,cat:"random together"}, {n:24,cat:"night together"}, {n:26,cat:"night together"},
-  {n:30,cat:"night together"}, {n:32,cat:"night"}, {n:34,cat:"random"},
-  {n:35,cat:"night random"}, {n:37,cat:"night random"}, {n:7,cat:"class campus"}, {n:29,cat:"class campus"}
+  {n:1, cat:"outside together"},
+  {n:2, cat:"outside together"},
+  {n:3, cat:"outside together"},
+  {n:4, cat:"outside together"},
+  {n:5, cat:"class campus"},
+  {n:8, cat:"night"},
+  {n:10,cat:"class campus"},
+  {n:12,cat:"class campus"},
+  {n:14,cat:"class campus"},
+  {n:16,cat:"outside"},
+  {n:18,cat:"class campus"},
+  {n:20,cat:"class campus"},
+  {n:22,cat:"random together"},
+  {n:24,cat:"night together"},
+  {n:26,cat:"night together"},
+  {n:30,cat:"night together"},
+  {n:32,cat:"night"},
+  {n:34,cat:"random"},
+  {n:35,cat:"night random"},
+  {n:37,cat:"night random"},
+  {n:7,cat:"class campus"},
+  {n:29,cat:"class campus"},
+  {n:6,cat:"outside together"},
+  {n:9,cat:"night"},
+  {n:11,cat:"class campus"},
+  {n:13,cat:"class campus"},
+  {n:15,cat:"class campus"},
+  {n:17,cat:"outside"},
+  {n:19,cat:"class campus"},
+  {n:21,cat:"class campus"},
+  {n:23,cat:"random together"},
+  {n:25,cat:"night together"},
+  {n:27,cat:"night together"},
+  {n:28,cat:"class campus"},
+  {n:31,cat:"night together"},
+  {n:33,cat:"night"},
+  {n:36,cat:"night random"}
 ];
 const polaroids = [22,24,34,35,2,26,16,30,32,4];   // foto scrapbook (tanpa caption)
 const cats = {all:"All", campus:"Campus Days", class:"Classroom Stories", together:"Together", outside:"Outside Campus", random:"Random Moments", night:"Night Memories"};
@@ -24,8 +54,7 @@ function step(d){ i=(i+d+current.length)%current.length; show() }
 function renderGallery(cat){
   const list = photos.filter(p=>cat==="all"||p.cat.split(" ").includes(cat));
   current = list.map(p=>p.n);
-  $("#gallery").innerHTML = list.map((p,k)=>`<figure class="reveal img" data-n="${p.n}" style="transition-delay:${(k%3)*.1}s"><img loading="lazy" src="${src(p.n)}" alt="Kenangan kuliah"></figure>`).join("");
-  observe();
+  $("#gallery").innerHTML = list.map((p,k)=>`<figure class="g" data-n="${p.n}" style="--d:${Math.min(k,12)*.06}s"><img decoding="async" src="${src(p.n)}" alt="Kenangan kuliah"></figure>`).join("");
 }
 $("#filters").innerHTML = Object.entries(cats).map(([k,v])=>`<button data-c="${k}" class="${k==="all"?"on":""}">${v}</button>`).join("");
 $("#filters").onclick = e => { const b=e.target.closest("button"); if(!b) return;
