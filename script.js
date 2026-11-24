@@ -81,8 +81,10 @@ document.addEventListener("keydown", e => { if(!$("#lb").classList.contains("ope
   if(e.key==="Escape") $("#lb").classList.remove("open"); if(e.key==="ArrowLeft") step(-1); if(e.key==="ArrowRight") step(1) });
 let sx=0; $("#lb").addEventListener("touchstart",e=>sx=e.touches[0].clientX);
 $("#lb").addEventListener("touchend",e=>{const d=e.changedTouches[0].clientX-sx; if(Math.abs(d)>50) step(d>0?-1:1)});
-const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
-function observe(){ document.querySelectorAll(".reveal:not(.in)").forEach(el=>io.observe(el)) }
+/* Reveal saat scroll: tanpa IntersectionObserver, plus cadangan supaya konten TIDAK PERNAH tetap tersembunyi */
+function observe(){ document.querySelectorAll(".reveal:not(.in)").forEach(el=>{ const r=el.getBoundingClientRect(); if(r.top<innerHeight*0.92 && r.bottom>0) el.classList.add("in") }) }
+addEventListener("scroll",observe,{passive:true}); addEventListener("resize",observe);
+observe(); setTimeout(observe,300); setTimeout(()=>document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in")),6000);
 addEventListener("scroll",()=>{ $("#heroBg").style.transform=`translateY(${scrollY*.25}px)`;
   $("#progress").style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+"%" },{passive:true});
 document.querySelectorAll(".links a").forEach(a=>a.onclick=()=>document.body.classList.remove("menu"));

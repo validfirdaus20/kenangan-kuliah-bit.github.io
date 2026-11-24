@@ -35,7 +35,7 @@ img{display:block;width:100%}.masonry img{transition:transform .6s}.masonry figu
 .lb{position:fixed;inset:0;z-index:50;background:rgba(20,14,12,.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
 .lb.open{opacity:1;pointer-events:auto}.lb img{width:auto;max-width:92vw;max-height:88vh;border-radius:8px;transition:opacity .25s}
 .lb button{position:absolute;background:none;border:0;color:#fff;font-size:2.6rem;cursor:pointer;padding:14px}.x{top:6px;right:10px;font-size:1.8rem!important}.pv{left:8px}.nx{right:8px}
-.reveal{opacity:0;transform:translateY(34px);transition:1s ease}.reveal.in{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(34px);transition:1s ease}.reveal.in{opacity:1!important;transform:none}.reveal.in{opacity:1;transform:none}
 @keyframes up{from{opacity:0;transform:translateY(30px)}}
 @media(max-width:720px){.burger{display:block}.links{position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:10px 5vw 20px;display:none}.menu .links{display:flex}.links a{margin:8px 0}
 .masonry{columns:2 140px;column-gap:10px}.masonry figure{margin-bottom:10px;border-radius:10px}section{padding:64px 4vw}
