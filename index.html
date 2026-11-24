@@ -9,11 +9,12 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="progress" id="progress"></div><div class="glow" id="glow"></div>
 <nav class="nav"><a href="#top" class="logo">memories ♡</a>
 <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('menu')">☰</button>
-<div class="links"><a href="#intro">Intro</a><a href="#wall">Memory Wall</a><a href="#polaroid">Scrapbook</a><a href="#featured">Featured</a><a href="#end">Ending</a></div></nav>
+<div class="links"><a href="#intro">Intro</a><a href="#wall">Memory Wall</a><a href="#polaroid">Scrapbook</a><a href="#end">Ending</a></div></nav>
 
-<header class="hero" id="top"><div class="hero-bg" id="heroBg"></div>
+<header class="hero" id="top"><div class="hero-bg" id="heroBg"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><div class="floaters" id="heroFloat"></div></div>
 <div class="hero-text"><p class="hand">a little album of us</p>
 <h1>Our Little<br><em>College Memories</em></h1>
 <p class="sub">Some moments were planned. Most of them weren’t. Somehow, those became our favorites.</p>
@@ -22,21 +23,21 @@
 <section class="intro" id="intro"><span class="tape"></span>
 <p class="reveal">College was never just about assignments, presentations, and deadlines. Somewhere between busy classes, random photos, jokes, and moments we almost forgot to capture, we created memories worth keeping.</p></section>
 
+<div class="strip"><div class="track" id="track"></div></div>
 <section id="wall"><h2 class="reveal">Memory Wall</h2>
 <div class="filters" id="filters"></div>
 <div class="masonry" id="gallery"></div></section>
 
 <section class="scrap" id="polaroid"><h2 class="reveal">Scrapbook ✶</h2>
-<div class="polaroids" id="polaroids"></div></section>
+<div class="doodle d1">✶</div><div class="doodle d2">♡</div><div class="doodle d3"><svg viewBox="0 0 120 20"><path d="M2 10 Q15 0 30 10 T60 10 T90 10 T118 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div><div class="doodle d4">✦</div><div class="polaroids" id="polaroids"></div></section>
 
 <section class="little"><div class="note reveal" style="--r:-3deg">Random photos became favorite memories.</div>
 <div class="note reveal y" style="--r:2deg">Not every day was special. But somehow, looking back, they all are.</div>
 <div class="note reveal p" style="--r:-1.5deg">We came for the classes. We stayed for the people.</div></section>
 
-<section id="featured"><h2 class="reveal">Featured Memories</h2>
-<div class="feat" id="feat"></div></section>
 
-<section class="end" id="end"><img id="endImg" class="reveal" alt="Foto grup kenangan kuliah">
+
+<section class="end" id="end"><div class="orb reveal"><i class="ring r1"></i><i class="ring r2"></i><span class="heart">♡</span><div class="floaters" id="endFloat"></div></div>
 <p class="quote reveal">We didn’t know we were making memories.<br>We were just having fun.</p>
 <p class="hand big reveal">Until we meet again.</p>
 <a class="btn" href="#top">Back to Memories ↑</a></section>
